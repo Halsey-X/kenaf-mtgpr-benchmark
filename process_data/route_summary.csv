@@ -1,0 +1,4 @@
+Route,n,Time_min_min,Time_min_max,Temp_C_min,Temp_C_max,pH_min,pH_max,Cell_mean,Cell_std,Hemi_mean,Hemi_std,Lign_mean,Lign_std
+Autohydrolysis,9,30.0,60.0,150.0,180.0,7.0,7.0,34.65,1.22,6.71,5.94,27.33,1.90
+Dilute-acid,12,45.0,90.0,120.0,140.0,0.6,0.9,29.58,3.28,2.05,1.99,26.99,1.28
+Alkaline,10,45.0,60.0,100.0,140.0,13.4,13.9,33.07,2.75,10.97,2.62,16.23,3.79
