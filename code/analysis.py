@@ -152,7 +152,10 @@ def make_baselines():
         "SVR": MultiOutputRegressor(SVR(kernel="rbf", C=1.0, gamma="scale")),
         "MLP": MLPRegressor(hidden_layer_sizes=(50, 50), max_iter=3000,
                             early_stopping=False, random_state=0),
-        "GPR": MultiOutputRegressor(GaussianProcessRegressor(random_state=0)),
+        "GPR": MultiOutputRegressor(GaussianProcessRegressor(
+            kernel=ConstantKernel(1.0, (1e-3, 1e3)) * RBF(1.0, (1e-2, 1e2))
+            + WhiteKernel(1e-1, (1e-5, 1e1)),
+            normalize_y=True, n_restarts_optimizer=3, random_state=0)),
     }
 
 MODELS = ["LR", "Ridge", "RF", "SVR", "MLP", "GPR", "MTGPR", "ST-PN"]
