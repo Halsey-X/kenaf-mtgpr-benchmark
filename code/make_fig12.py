@@ -38,7 +38,7 @@ for i, m in enumerate(show):
            label=m, zorder=3)
 ax.set_xticks(x)
 ax.set_xticklabels(SHORT, fontsize=9)
-ax.set_ylabel("Aggregated RMSE (%)", fontsize=10)
+ax.set_ylabel("Aggregated RMSE (percentage points)", fontsize=10)
 ax.set_title("(a) RMSE with each route held out", fontsize=11, weight="bold", pad=8)
 ax.grid(axis="y", ls=":", lw=0.6, color="#CCCCCC", zorder=0)
 ax.set_axisbelow(True)
@@ -60,7 +60,7 @@ for b, m in zip(bars, order):
              va="center", fontsize=9, color=C_TXT)
 axb.set_yticks(np.arange(len(order)))
 axb.set_yticklabels(order, fontsize=9)
-axb.set_xlabel("Mean aggregated RMSE (%)", fontsize=10)
+axb.set_xlabel("Mean aggregated RMSE (percentage points)", fontsize=10)
 axb.set_title("(b) Mean over the three held-out routes", fontsize=11, weight="bold", pad=8)
 axb.grid(axis="x", ls=":", lw=0.6, color="#CCCCCC", zorder=0)
 axb.set_axisbelow(True)
@@ -73,8 +73,8 @@ handles = [plt.Rectangle((0, 0), 1, 1, facecolor=C_GP, ec="#5A6470", lw=1.2),
 fig.legend(handles, ["MTGPR", "Route-mean baseline (trivial)", "other models"],
            loc="lower center", ncol=3, frameon=False, fontsize=9,
            bbox_to_anchor=(0.5, -0.02))
-fig.suptitle("Leave-one-route-out generalisation: the Gaussian-process models coincide "
-             "with the trivial baseline", fontsize=11.5, weight="bold", y=0.99)
+fig.suptitle("Leave-one-route-out generalisation: MTGPR reduces to the trivial "
+             "route-mean baseline on unseen routes", fontsize=11.5, weight="bold", y=0.99)
 fig.tight_layout(rect=[0, 0.05, 1, 0.93])
 os.makedirs(os.path.dirname(EPS), exist_ok=True)
 fig.savefig(PNG, dpi=300, facecolor="white")
