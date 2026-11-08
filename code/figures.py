@@ -87,7 +87,7 @@ bars = axes[2].bar(MODELS, cv, color=[COL[m] for m in MODELS], alpha=0.7)
 axes[2].set_title("(c) RMSE coefficient of variation"); axes[2].set_ylabel("CV (%)")
 for b, v in zip(bars, cv): axes[2].text(b.get_x()+b.get_width()/2, v+0.1, f"{v:.1f}", ha="center", fontsize=8)
 axes[2].tick_params(axis="x", labelsize=8.5)
-fig.suptitle("Repeated-split prediction error and stability (20 support-query splits, support=8)")
+fig.suptitle("Repeated-split prediction error and stability (20 support–query splits, support=8)")
 savefig(fig, "fig2_repeat_stability")
 
 # ---------- Fig 3: support-size ablation ----------
@@ -149,7 +149,7 @@ axes[0].set_yticks(range(NC)); axes[0].set_yticklabels(COMP_SHORT, fontsize=9)
 axes[0].set_title("(a) Cross-task correlation (B normalized)")
 for i in range(NC):
     for j in range(NC):
-        axes[0].text(j, i, f"{corr[i,j]:.2f}", ha="center", va="center", fontsize=9,
+        axes[0].text(j, i, f"{corr[i,j]:.2f}".replace("-", "\u2212"), ha="center", va="center", fontsize=9,
                      color="white" if abs(corr[i,j]) > 0.5 else "black")
 fig.colorbar(im0, ax=axes[0], fraction=0.04)
 im1 = axes[1].imshow(B, cmap="viridis")
@@ -159,7 +159,7 @@ axes[1].set_title("(b) Coregionalization matrix B = A A$^T$")
 for i in range(NC):
     for j in range(NC):
         # viridis: high values are light (yellow) -> black text; low values dark -> white text
-        axes[1].text(j, i, f"{B[i,j]:.2f}", ha="center", va="center", fontsize=9,
+        axes[1].text(j, i, f"{B[i,j]:.2f}".replace("-", "\u2212"), ha="center", va="center", fontsize=9,
                      color="black" if B[i, j] > 0.5 * B.max() else "white")
 fig.colorbar(im1, ax=axes[1], fraction=0.04)
 fig.suptitle("MTGPR intrinsic coregionalization learned on the full 31-sample dataset")

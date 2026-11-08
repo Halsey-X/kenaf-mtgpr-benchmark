@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
+*.bak
+*.bak_*
 figures_data/
+.DS_Store
